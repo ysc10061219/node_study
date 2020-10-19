@@ -4,7 +4,7 @@ const mysql = require('mysql');
 var db = mysql.createPool({
 	host:'localhost',
 	user:'root',
-	password:'1234',
+	password:'root',
 	database:'learn'
 });
 module.exports = function() {
@@ -50,6 +50,9 @@ module.exports = function() {
 	//处理登录成功后的页面跳转
 	router.get('/',(req,res)=>{
 		res.render('admin/index.ejs',{});
+	});
+	router.get('/banners',(req,res)=>{
+		res.render('admin/banners.ejs',{});
 	});
 
 
