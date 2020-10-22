@@ -2,7 +2,7 @@ const express = require('express');
 const expressStatic = require('express-static');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const multerObj = multer({desc:'./static/upload'});
+const multerObj = multer({dest:'./static/upload'});
 const mysql = require('mysql');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
@@ -16,8 +16,8 @@ server.listen(9090,function(){
 });
 
 //1.获取请求数据
-server.use(multerObj.any());
 server.use(bodyParser.urlencoded());
+server.use(multerObj.any());
 //2.cookie、session
 server.use(cookieParser());
 (function(){
